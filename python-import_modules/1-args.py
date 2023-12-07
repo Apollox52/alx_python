@@ -1,20 +1,19 @@
 from sys import argv
 
-def main():
+def print_arguments():
     num_args = len(argv) - 1
-    args_text = "argument" if num_args == 1 else "arguments"
 
-    print(f"{num_args} {args_text}:")
+    if num_args == 0:
+        print("0 arguments.")
+        print(".")
+    else:
+        print(f"{num_args} argument{'s' if num_args != 1 else ''}:")
 
-    for i, arg in enumerate(argv[1:], start=1):
-        print(f"{i}: {arg}")
-
-    print("." if num_args == 0 else "")
+        for i, arg in enumerate(argv[1:], start=1):
+            print(f"{i}: {arg}")
 
 if __name__ == "__main__":
-    main()
+    print_arguments()
 
 
 
-
-    
