@@ -1,12 +1,12 @@
 def print_matrix_integer(matrix=[[]]):
     for row in matrix:
         for i, num in enumerate(row):
-           
+            # Use str.format() to print integers without casting to strings
             if i < len(row) - 1:
-                print("{:d} ".format(num), end="")
+                print("{:d}".format(num), end=" ")
             else:
                 print("{:d}".format(num))
-    
+    # Print an empty line after each row of the matrix
     print()
 
 if __name__ == "__main__":
@@ -16,17 +16,12 @@ if __name__ == "__main__":
     matrix4 = [[1]]
     matrix5 = [[1], [2], [3], [4]]
 
-    print("Correct output - case: matrix =", matrix1)
     print_matrix_integer(matrix1)
-
-    print("Correct output - case: matrix =", matrix2)
+    print("--")
     print_matrix_integer(matrix2)
-
-    print("Correct output - case: matrix =", matrix3)
+    print("--")
     print_matrix_integer(matrix3)
-
-    print("Correct output - case: matrix =", matrix4)
+    print("--")
     print_matrix_integer(matrix4)
-
-    print("Correct output - case: matrix =", matrix5)
+    print("--")
     print_matrix_integer(matrix5)
