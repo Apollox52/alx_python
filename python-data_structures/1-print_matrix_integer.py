@@ -8,3 +8,5 @@ def print_matrix_integer(matrix=[]):
     if not matrix:
         print()
 
+matrix_empty = [[]]
+print_matrix_integer(matrix_empty)
