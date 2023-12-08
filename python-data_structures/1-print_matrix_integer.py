@@ -6,7 +6,7 @@ def print_matrix_integer(matrix=[[]]):
             else:
                 print("{:d}".format(num), end="")
         print()
-  
+    # Print an empty line after each row of the matrix
     print()
 
 if __name__ == "__main__":
