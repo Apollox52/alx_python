@@ -4,6 +4,4 @@ def raise_exception_msg(message=""):
     except NameError as ne:
         print(ne)
 
-raise_exception_msg("C is fun")
-raise_exception_msg("python is cool")
-raise_exception_msg("")
+raise_exception_msg(message="C is fun")
