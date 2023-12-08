@@ -1,12 +1,12 @@
-def print_matrix_integer(matrix=[]):
-    for row in matrix:
-        for i, num in enumerate(row):
-            if i == len(row) - 1:
-                print("{:d}".format(num))
-            else:
-                print("{:d}".format(num), end=" ")
-    if not matrix:
-        print()
+def print_matrix_integer(matrix=[[]]):
+  """
+  Prints a matrix of integers.
 
-matrix_empty = [[]]
-print_matrix_integer(matrix_empty)
+  Args:
+    matrix: A list of lists of integers.
+  """
+  for row in matrix:
+    for element in row:
+      # Use str.format() to print integers without casting
+      print("{:d}".format(element), end=" ")
+    print("")
