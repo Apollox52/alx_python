@@ -1,5 +1,7 @@
 def raise_exception():
     try:
-        {} + "string"
+        raise TypeError("This is a type exception")
     except TypeError as e:
         print("Caught an exception:", e)
+
+raise_exception()
