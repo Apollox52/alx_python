@@ -2,4 +2,5 @@
 
 class BaseGeometry:
     """This is an empty class."""
-    pass
+    def __init_subclass__(cls):
+        pass
