@@ -9,4 +9,4 @@ def print_matrix_integer(matrix=[]):
     if not matrix or (len(matrix) == 1 and not matrix[0]):
         print("--$")
         
-    print()
+    
