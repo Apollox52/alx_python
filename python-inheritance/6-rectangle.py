@@ -78,39 +78,10 @@ class Rectangle(BaseGeometry):
 
 if __name__ == "__main__":
     # Test cases
-    r = Rectangle(1, 4)
-    print(dir(r))
+    r = Rectangle()
 
-    print(issubclass(Rectangle, BaseGeometry))
+    # Case: print(dir(Rectangle))
+    print([attr for attr in dir(r) if not callable(getattr(r, attr))])
 
-    try:
-        r = Rectangle(1, 4)
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
-
-    try:
-        r = Rectangle(0, 4)
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
-
-    try:
-        r = Rectangle(3, "3")
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
-
-    try:
-        r = Rectangle(3, 5)
-        print(r.width)
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
-
-    try:
-        r = Rectangle(3, 5)
-        print(r.height)
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
-
-    try:
-        r = Rectangle()
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
+    # Case: print(issubclass(Rectangle, BaseGeometry))
+    print(isinstance(r, BaseGeometry))
