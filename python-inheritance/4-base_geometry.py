@@ -1,3 +1,7 @@
+"""
+Module containing the BaseGeometry class for geometry-related operations.
+"""
+
 class BaseGeometry:
     """
     Base class for geometry-related operations.
