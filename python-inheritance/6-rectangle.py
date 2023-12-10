@@ -1,8 +1,8 @@
 """
-Module containing the BaseGeometry class for geometry-related operations.
+Module containing the Rectangle class, inheriting from BaseGeometry.
 
 Classes:
-    BaseGeometry: A base class for geometry-related operations.
+    Rectangle: A class representing a rectangle, inheriting from BaseGeometry.
 
 Methods:
     None
@@ -41,3 +41,76 @@ class BaseGeometry:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
+
+
+class Rectangle(BaseGeometry):
+    """
+    A class representing a rectangle, inheriting from BaseGeometry.
+
+    Attributes:
+        __width (int): The width of the rectangle.
+        __height (int): The height of the rectangle.
+    """
+    def __init__(self, width=0, height=0):
+        """
+        Initialize a Rectangle instance with the given width and height.
+
+        Args:
+            width (int): The width of the rectangle.
+            height (int): The height of the rectangle.
+        """
+        super().__init__()  # Call the constructor of the BaseGeometry class
+        self.__width = width
+        self.__height = height
+        self.integer_validator("width", self.__width)
+        self.integer_validator("height", self.__height)
+
+    @property
+    def width(self):
+        """Getter for the width attribute."""
+        return self.__width
+
+    @property
+    def height(self):
+        """Getter for the height attribute."""
+        return self.__height
+
+
+if __name__ == "__main__":
+    # Test cases
+    r = Rectangle(1, 4)
+    print(dir(r))
+
+    print(issubclass(Rectangle, BaseGeometry))
+
+    try:
+        r = Rectangle(1, 4)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    try:
+        r = Rectangle(0, 4)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    try:
+        r = Rectangle(3, "3")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    try:
+        r = Rectangle(3, 5)
+        print(r.width)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    try:
+        r = Rectangle(3, 5)
+        print(r.height)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    try:
+        r = Rectangle()
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
