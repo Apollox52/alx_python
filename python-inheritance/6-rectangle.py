@@ -2,7 +2,7 @@
 Module containing the Rectangle class, inheriting from BaseGeometry.
 """
 
-from base_geometry import BaseGeometry
+from 5-base_geometry import BaseGeometry
 
 class Rectangle(BaseGeometry):
     """
