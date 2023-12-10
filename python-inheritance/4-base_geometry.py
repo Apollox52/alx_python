@@ -20,3 +20,16 @@ class BaseGeometry:
             Exception: Always raises an exception with the message "area() is not implemented".
         """
         raise Exception("area() is not implemented")
+
+    def __str__(self):
+        """
+        String representation of the BaseGeometry instance.
+
+        Returns:
+            str: String representation including information about the class.
+        """
+        return "This is an instance of the BaseGeometry class. Use the 'area()' method for geometry calculations."
+
+if __name__ == "__main__":
+    bg = BaseGeometry()
+    print(dir(bg))
