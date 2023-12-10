@@ -19,7 +19,15 @@ class BaseGeometry:
         raise Exception("area() is not implemented")
 
 
-# Additional case for the BaseGeometry class
+# Additional cases for the BaseGeometry class
 if __name__ == "__main__":
+    # Case 1: dir(bg)
     bg = BaseGeometry()
     print(dir(bg))
+
+    # Case 2: try-except block for area()
+    bg = BaseGeometry()
+    try:
+        print(bg.area())
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
