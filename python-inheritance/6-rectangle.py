@@ -1,3 +1,13 @@
+"""
+Module containing the Rectangle class, inheriting from BaseGeometry.
+
+Classes:
+    Rectangle: A class representing a rectangle, inheriting from BaseGeometry.
+
+Methods:
+    None
+"""
+
 class BaseGeometry:
     """
     A base class for geometry-related operations.
@@ -24,10 +34,13 @@ class BaseGeometry:
             value: The value to be validated.
 
         Raises:
-            ValueError: If the value is not an integer or if it is less than or equal to 0.
+            TypeError: If the value is not an integer.
+            ValueError: If the value is less than or equal to 0.
         """
-        if not isinstance(value, int) or value <= 0:
-            raise ValueError("{} must be an integer greater than 0".format(name))
+        if not isinstance(value, int):
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be greater than 0".format(name))
 
 
 class Rectangle(BaseGeometry):
@@ -46,11 +59,11 @@ class Rectangle(BaseGeometry):
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
         """
-        super().__init__()
-        self.integer_validator("width", width)
-        self.integer_validator("height", height)
+        super().__init__()  # Call the constructor of the BaseGeometry class
         self.__width = width
         self.__height = height
+        self.integer_validator("width", self.__width)
+        self.integer_validator("height", self.__height)
 
     @property
     def width(self):
@@ -61,3 +74,14 @@ class Rectangle(BaseGeometry):
     def height(self):
         """Getter for the height attribute."""
         return self.__height
+
+
+if __name__ == "__main__":
+    # Test cases
+    r = Rectangle()
+
+    # Case: print(dir(Rectangle))
+    print([attr for attr in dir(r) if not callable(getattr(r, attr))])
+
+    # Case: print(issubclass(Rectangle, BaseGeometry))
+    print(isinstance(r, BaseGeometry))
