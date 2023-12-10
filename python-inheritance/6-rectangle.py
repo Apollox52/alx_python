@@ -1,6 +1,16 @@
+"""
+Module containing the BaseGeometry class for geometry-related operations.
+
+Classes:
+    BaseGeometry: A base class for geometry-related operations.
+
+Methods:
+    None
+"""
+
 class BaseGeometry:
     """
-    Base class for geometry-related operations.
+    A base class for geometry-related operations.
 
     Methods:
         area(self): Raises an Exception with the message "area() is not implemented".
@@ -31,52 +41,3 @@ class BaseGeometry:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
-
-
-class Rectangle(BaseGeometry):
-    """
-    A class representing a rectangle, inheriting from BaseGeometry.
-
-    Attributes:
-        __width (int): The width of the rectangle.
-        __height (int): The height of the rectangle.
-    """
-    def __init__(self, width, height):
-        """
-        Initialize a Rectangle instance with the given width and height.
-
-        Args:
-            width (int): The width of the rectangle.
-            height (int): The height of the rectangle.
-        """
-        self.__width = width
-        self.__height = height
-        self.integer_validator("width", self.__width)
-        self.integer_validator("height", self.__height)
-
-    def __str__(self):
-        """
-        String representation of the Rectangle instance.
-
-        Returns:
-            str: String representation including information about width and height.
-        """
-        return "[Rectangle] {}/{}".format(self.__width, self.__height)
-
-
-if __name__ == "__main__":
-    # Example usage
-    r = Rectangle(3, 5)
-
-    print(r)
-    print(dir(r))
-
-    try:
-        print("Rectangle: {} - {}".format(r._Rectangle__width, r._Rectangle__height))
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
-
-    try:
-        r2 = Rectangle(4, True)
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
