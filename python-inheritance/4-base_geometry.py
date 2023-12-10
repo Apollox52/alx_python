@@ -26,6 +26,6 @@ class BaseGeometry:
         String representation of the BaseGeometry instance.
 
         Returns:
-            str: String representation including information about the class.
+            str: String representation including sorted information about the class.
         """
-        return str(dir(self))
+        return str(sorted(dir(self)))
