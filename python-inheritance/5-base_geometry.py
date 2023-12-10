@@ -4,10 +4,7 @@ Module containing the BaseGeometry class for geometry-related operations.
 
 class BaseGeometry:
     """
-    A base class for geometry-related operations.
-
-    Attributes:
-        None
+    Base class for geometry-related operations.
 
     Methods:
         area(self): Raises an Exception with the message "area() is not implemented".
@@ -38,3 +35,27 @@ class BaseGeometry:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
+
+if __name__ == "__main__":
+    # Example usage
+    BaseGeometry = __import__('5-base_geometry').BaseGeometry
+
+    bg = BaseGeometry()
+
+    bg.integer_validator("my_int", 12)
+    bg.integer_validator("width", 89)
+
+    try:
+        bg.integer_validator("name", "John")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    try:
+        bg.integer_validator("age", 0)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    try:
+        bg.integer_validator("distance", -4)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
