@@ -85,3 +85,15 @@ if __name__ == "__main__":
 
     # Case: print(issubclass(Rectangle, BaseGeometry))
     print(isinstance(r, BaseGeometry))
+    
+    print(dir(Rectangle))
+ 
+    print(issubclass(Rectangle, BaseGeometry))
+
+    r = Rectangle(3, 5) 
+    print(r.width)
+
+    r = Rectangle(3, 5) 
+    print(r.height)
+
+    r = Rectangle()
