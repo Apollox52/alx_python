@@ -1,8 +1,37 @@
-"""
-Module containing the Rectangle class, inheriting from BaseGeometry.
-"""
+class BaseGeometry:
+    """
+    Base class for geometry-related operations.
 
-from base_geometry import BaseGeometry
+    Methods:
+        area(self): Raises an Exception with the message "area() is not implemented".
+        integer_validator(self, name, value): Validates the given integer value.
+    """
+    def area(self):
+        """
+        Calculate the area. This method is not implemented in the base class.
+
+        Raises:
+            Exception: Always raises an exception with the message "area() is not implemented".
+        """
+        raise Exception("area() is not implemented")
+
+    def integer_validator(self, name, value):
+        """
+        Validate the given integer value.
+
+        Args:
+            name (str): The name of the value.
+            value: The value to be validated.
+
+        Raises:
+            TypeError: If the value is not an integer.
+            ValueError: If the value is less than or equal to 0.
+        """
+        if not isinstance(value, int):
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be greater than 0".format(name))
+
 
 class Rectangle(BaseGeometry):
     """
@@ -20,7 +49,6 @@ class Rectangle(BaseGeometry):
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
         """
-        super().__init__()  # Call the constructor of the BaseGeometry class
         self.__width = width
         self.__height = height
         self.integer_validator("width", self.__width)
@@ -35,17 +63,16 @@ class Rectangle(BaseGeometry):
         """
         return "[Rectangle] {}/{}".format(self.__width, self.__height)
 
+
 if __name__ == "__main__":
     # Example usage
-    Rectangle = __import__('6-rectangle').Rectangle
-
     r = Rectangle(3, 5)
 
     print(r)
     print(dir(r))
 
     try:
-        print("Rectangle: {} - {}".format(r.width, r.height))
+        print("Rectangle: {} - {}".format(r._Rectangle__width, r._Rectangle__height))
     except Exception as e:
         print("[{}] {}".format(e.__class__.__name__, e))
 
