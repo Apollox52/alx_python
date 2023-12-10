@@ -2,7 +2,7 @@
 Module containing the Rectangle class, inheriting from BaseGeometry.
 """
 
-from 5-base_geometry import BaseGeometry
+from base_geometry import BaseGeometry
 
 class Rectangle(BaseGeometry):
     """
@@ -20,6 +20,7 @@ class Rectangle(BaseGeometry):
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
         """
+        super().__init__()  # Call the constructor of the BaseGeometry class
         self.__width = width
         self.__height = height
         self.integer_validator("width", self.__width)
@@ -33,3 +34,22 @@ class Rectangle(BaseGeometry):
             str: String representation including information about width and height.
         """
         return "[Rectangle] {}/{}".format(self.__width, self.__height)
+
+if __name__ == "__main__":
+    # Example usage
+    Rectangle = __import__('6-rectangle').Rectangle
+
+    r = Rectangle(3, 5)
+
+    print(r)
+    print(dir(r))
+
+    try:
+        print("Rectangle: {} - {}".format(r.width, r.height))
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    try:
+        r2 = Rectangle(4, True)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
