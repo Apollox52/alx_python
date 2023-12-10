@@ -26,10 +26,6 @@ class BaseGeometry:
         String representation of the BaseGeometry instance.
 
         Returns:
-            list: List of attributes and methods of the BaseGeometry class.
+            str: String representation including information about the class.
         """
-        return dir(self)
-
-if __name__ == "__main__":
-    bg = BaseGeometry()
-    print(bg)
+        return str(dir(self))
