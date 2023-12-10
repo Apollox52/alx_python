@@ -60,10 +60,10 @@ class Rectangle(BaseGeometry):
             height (int): The height of the rectangle.
         """
         super().__init__()  # Call the constructor of the BaseGeometry class
+        self.integer_validator("width", width)
+        self.integer_validator("height", height)
         self.__width = width
         self.__height = height
-        self.integer_validator("width", self.__width)
-        self.integer_validator("height", self.__height)
 
     @property
     def width(self):
@@ -85,3 +85,15 @@ if __name__ == "__main__":
 
     # Case: print(issubclass(Rectangle, BaseGeometry))
     print(isinstance(r, BaseGeometry))
+
+    # Case: r = Rectangle(3, 5) print(r.width)
+    r = Rectangle(3, 5)
+    print(r.width)
+
+    # Case: r = Rectangle(3, 5) print(r.height)
+    r = Rectangle(3, 5)
+    print(r.height)
+
+    # Case: r = Rectangle()
+    r = Rectangle()
+    print("Rectangle: {} - {}".format(r.width, r.height))
