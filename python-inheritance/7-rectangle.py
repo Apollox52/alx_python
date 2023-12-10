@@ -85,7 +85,33 @@ class Rectangle(BaseGeometry):
 
 
 if __name__ == "__main__":
-    # Test case
-    r = Rectangle(3, 5)
+    # Test cases
+    r = Rectangle()
+
+    # Case: print(dir(Rectangle))
+    print([attr for attr in dir(r) if not callable(getattr(r, attr))])
+
+    # Case: r = Rectangle()
+    r = Rectangle()
+    print(r)
+
+    # Case: r = Rectangle(1)
+    r = Rectangle(1)
+    print(r)
+
+    # Case: r = Rectangle(1, [12, 52])
+    try:
+        r = Rectangle(1, [12, 52])
+        print(r)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    # Case: r = Rectangle(4, 5)
+    r = Rectangle(4, 5)
+    print(r)
+    print(r.area())
+
+    # Case: r = Rectangle(4, 5)
+    r = Rectangle(4, 5)
     print(r)
     print(r.area())
