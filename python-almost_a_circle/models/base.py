@@ -1,4 +1,3 @@
-
 class Base:
     """
     Base class for managing id attribute in all classes.
