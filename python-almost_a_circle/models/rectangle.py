@@ -147,20 +147,25 @@ class Rectangle(Base):
         for _ in range(self.__height):
             print(" " * self.__x + "#" * self.__width)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         Update attributes of the rectangle.
 
         Args:
             *args: Variable number of arguments representing id, width, height, x, y.
+            **kwargs: Variable number of keyword arguments representing attributes.
 
         Note:
-            Argument order is important.
+            Argument order is not important.
+            **kwargs must be skipped if *args exists and is not empty.
         """
         if args:
             attributes = ["id", "width", "height", "x", "y"]
             for i, arg in enumerate(args):
                 setattr(self, attributes[i], arg)
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     def __str__(self):
         """
