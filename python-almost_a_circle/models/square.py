@@ -1,3 +1,12 @@
+"""
+models/square.py
+
+Square module defining the Square class, which inherits from the Rectangle class.
+
+Classes:
+    - Square: Represents a square, inherits attributes and methods from Rectangle.
+"""
+
 from models.rectangle import Rectangle
 
 class Square(Rectangle):
