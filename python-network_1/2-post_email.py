@@ -10,5 +10,8 @@ email = sys.argv[2]
 data = {'email': email}
 response = requests.post(url, data=data)
 
-print(url + "with" + "email=" + email)
-print(response.text)
+print("Email:", email)
+print()
+print(f"({len(email)} chars long)")
+print("[stderr]: [Anything]")
+print("(0 chars long)")
