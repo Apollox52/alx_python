@@ -10,6 +10,8 @@ email = sys.argv[2]
 data = {'email': email}
 response = requests.post(url, data=data)
 
+# Correct the format of the printed URL
+print(url + "withemail=" + email)
 print("Email:", email)
 print()
 print(f"({len(email)} chars long)")
