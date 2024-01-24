@@ -22,15 +22,17 @@ def get_states(username, password, database):
     cursor.close()
     db.close()
 
+
 if __name__ == "__main__":
     # Check if the correct number of command-line arguments is provided
     if len(sys.argv) != 4:
         print("Usage: python script.py <username> <password> <database>")
         sys.exit(1)
 
+ 
     # Get command-line arguments
     username, password, database = sys.argv[1], sys.argv[2], sys.argv[3]
  
- 
+
     # Call the function to get and display states
     get_states(username, password, database)
