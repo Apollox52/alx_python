@@ -8,8 +8,8 @@ def filter_states(username, password, database):
     # Create a cursor object to execute queries
     cursor = db.cursor()
 
-    # Execute the query to select states starting with 'N' (case-insensitive)
-    query = "SELECT * FROM states WHERE name LIKE 'N%' COLLATE utf8_general_ci ORDER BY id"
+    # Execute the query to select states starting with 'N'
+    query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id"
     cursor.execute(query)
 
     # Fetch all rows
@@ -31,7 +31,6 @@ if __name__ == "__main__":
 
     # Get command-line arguments
     username, password, database = sys.argv[1], sys.argv[2], sys.argv[3]
-
 
     # Call the function to filter and display states
     filter_states(username, password, database)
