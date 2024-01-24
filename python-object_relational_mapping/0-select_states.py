@@ -30,6 +30,7 @@ if __name__ == "__main__":
 
     # Get command-line arguments
     username, password, database = sys.argv[1], sys.argv[2], sys.argv[3]
-
+ 
+ 
     # Call the function to get and display states
     get_states(username, password, database)
