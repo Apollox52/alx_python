@@ -32,5 +32,6 @@ if __name__ == "__main__":
     # Get command-line arguments
     username, password, database = sys.argv[1], sys.argv[2], sys.argv[3]
 
+
     # Call the function to filter and display states
     filter_states(username, password, database)
