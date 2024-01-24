@@ -9,7 +9,7 @@ def filter_states(username, password, database, state_name):
     cursor = db.cursor()
 
     # Use format to create the SQL query with the user input
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id"
+    query = "SELECT * FROM states WHERE BINARY name = %s ORDER BY id"
     cursor.execute(query, (state_name,))
 
     # Fetch all rows
