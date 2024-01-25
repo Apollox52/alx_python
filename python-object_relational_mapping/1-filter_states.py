@@ -17,9 +17,9 @@ if __name__ == "__main__":
     # Create a cursor object using cursor() method
     cursor = db.cursor()
 
-    # Execute SQL query to select states starting with 'N'
-    query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id;"
-    cursor.execute(query)
+    # Execute SQL query to select states starting with 'N' (case-insensitive)
+    query = "SELECT * FROM states WHERE name LIKE 'N%' COLLATE utf8_general_ci ORDER BY id;"
+
 
     # Fetch all the rows in a list of tuples
     results = cursor.fetchall()
