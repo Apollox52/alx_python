@@ -10,19 +10,16 @@ def filter_states(username, password, database):
         # Create a cursor object using cursor() method
         cursor = db.cursor()
 
-        # Execute SQL query to select states starting with 'N' (case-insensitive)
-        query = "SELECT * FROM states WHERE name LIKE %s COLLATE utf8_general_ci ORDER BY id;"
-        cursor.execute(query, ('N%',))
+        # Execute SQL query to select states starting with 'N' (case-sensitive)
+        query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id;"
+        cursor.execute(query)
 
         # Fetch all the rows in a list of tuples
         results = cursor.fetchall()
 
         # Display the results
-        if results:
-            for row in results:
-                print(row)
-        else:
-            print("No records found.")
+        for row in results:
+            print(row)
 
     except MySQLdb.Error as e:
         print("MySQL Error {}: {}".format(e.args[0], e.args[1]))
