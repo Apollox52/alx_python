@@ -14,7 +14,7 @@ def filter_cities(username, password, database, state_name):
         query = """
             SELECT cities.name
             FROM cities
-            JOIN states ON cities.state_id = states.id
+            LEFT JOIN states ON cities.state_id = states.id
             WHERE states.name = %s
             ORDER BY cities.id;
         """
@@ -28,7 +28,10 @@ def filter_cities(username, password, database, state_name):
             city_names = ', '.join(result[0] for result in results)
             print(city_names)
         else:
-            print("No cities found for the given state.")
+            if cursor.rowcount == 0:
+                print("The specified state does not exist.")
+            else:
+                print("No cities found for the given state.")
 
     except MySQLdb.Error as e:
         print("MySQL Error {}: {}".format(e.args[0], e.args[1]))
@@ -40,12 +43,4 @@ def filter_cities(username, password, database, state_name):
 
 if __name__ == "__main__":
     # Check if the correct number of arguments is provided
-    if len(sys.argv) != 5:
-        print("Usage: {} <username> <password> <database> <state_name>".format(sys.argv[0]))
-        sys.exit(1)
-
-    # Get command line arguments
-    username, password, database, state_name = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
-
-    # Call the filter_cities function
-    filter_cities(username, password, database, state_name)
+    if len(sys.argv)
