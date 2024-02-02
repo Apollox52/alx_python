@@ -1,3 +1,12 @@
+"""
+5-number_template.py - Flask web application with additional routes.
+
+This script starts a Flask web application listening on 0.0.0.0, port 5000.
+It defines routes '/', '/hbnb', '/c/<text>', '/python/<text>', '/number/<n>', and '/number_template/<n>'
+with the option strict_slashes=False.
+
+Usage: python3 5-number_template.py
+"""
 from flask import Flask, render_template
 
 app = Flask(__name__)
