@@ -85,10 +85,7 @@ def number_template(n):
     Returns:
         str: The HTML page or a 404 error if n is not an integer.
     """
-    if isinstance(n, int):
-        return render_template('5-number_template.html', n=n)
-    else:
-        abort(404)
+    return render_template('5-number_template.html', n=n)
 
 if __name__ == '__main__':
     """
