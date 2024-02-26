@@ -20,7 +20,7 @@ def get_employee_info(employee_id):
     # Create CSV file
     csv_filename = f'{employee_id}.csv'
     with open(csv_filename, mode='w', newline='') as csv_file:
-        fieldnames = ['USER_ID', 'USERNAME', 'TOTAL_TASKS', 'TASK_COMPLETED_STATUS', 'TASK_TITLE']
+        fieldnames = ['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS', 'TASK_TITLE']
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
 
         writer.writeheader()
@@ -29,12 +29,11 @@ def get_employee_info(employee_id):
             writer.writerow({
                 'USER_ID': employee_id,
                 'USERNAME': employee_name,
-                'TOTAL_TASKS': total_tasks,
                 'TASK_COMPLETED_STATUS': str(task['completed']),
                 'TASK_TITLE': task['title']
             })
 
-    print(f'Data exported to {csv_filename}')
+    print(f'Data exported to {csv_filename} (Total tasks: {total_tasks})')
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
