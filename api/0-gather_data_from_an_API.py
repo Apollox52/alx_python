@@ -21,7 +21,7 @@ def get_employee_info(employee_id):
     # Display the information on standard output
     print(f"Employee {employee_name} is done with tasks({completed_tasks}/{total_tasks}):")
     for task_title in completed_task_titles:
-        print(f"    {task_title}")
+        print(f"\t{task_title}")
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
