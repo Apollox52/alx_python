@@ -1,7 +1,15 @@
 import sys
 import json
 import requests
+"""
+    Fetch user information and tasks based on the provided user ID.
 
+    Args:
+        user_id (int): The ID of the user.
+
+    Returns:
+        tuple: A tuple containing user data (dict) and tasks data (list of dicts).
+    """
 def get_user_tasks(user_id):
     """
     Fetch user information and tasks based on the provided user ID.
