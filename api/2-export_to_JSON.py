@@ -1,15 +1,7 @@
 import sys
 import json
 import requests
-"""
-    Fetch user information and tasks based on the provided user ID.
 
-    Args:
-        user_id (int): The ID of the user.
-
-    Returns:
-        tuple: A tuple containing user data (dict) and tasks data (list of dicts).
-    """
 def get_user_tasks(user_id):
     """
     Fetch user information and tasks based on the provided user ID.
@@ -48,6 +40,7 @@ def export_to_json(user_id, tasks):
         json.dump(data_to_export, json_file, indent=2)
 
 if __name__ == "__main__":
+    # Check if the correct number of command-line arguments is provided
     if len(sys.argv) != 2:
         print("Usage: python script.py <user_id>")
         sys.exit(1)
@@ -60,5 +53,6 @@ if __name__ == "__main__":
         print(f"Error fetching data: {e}")
         sys.exit(1)
 
+    # Export data to JSON file
     export_to_json(user_id, tasks_data)
     print(f"Data exported to {user_id}.json successfully.")
