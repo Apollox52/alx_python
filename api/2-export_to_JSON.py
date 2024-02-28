@@ -33,26 +33,12 @@ def export_to_json(user_id, tasks):
     Returns:
         None
     """
+    # Creating a dictionary in the specified format
     data_to_export = {str(user_id): [{"task": task["title"], "completed": task["completed"], "username": user_data["username"]} for task in tasks]}
     filename = f'{user_id}.json'
 
+    # Writing the data to a JSON file
     with open(filename, 'w') as json_file:
         json.dump(data_to_export, json_file, indent=2)
 
-if __name__ == "__main__":
-    # Check if the correct number of command-line arguments is provided
-    if len(sys.argv) != 2:
-        print("Usage: python script.py <user_id>")
-        sys.exit(1)
-
-    user_id = sys.argv[1]
-
-    try:
-        user_data, tasks_data = get_user_tasks(user_id)
-    except requests.exceptions.RequestException as e:
-        print(f"Error fetching data: {e}")
-        sys.exit(1)
-
-    # Export data to JSON file
-    export_to_json(user_id, tasks_data)
-    print(f"Data exported to {user_id}.json successfully.")
+if __name__ == "__m
