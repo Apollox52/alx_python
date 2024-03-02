@@ -1,7 +1,15 @@
 import json
 import requests
 import sys
+"""
+    Fetches tasks for a specified user from the API.
 
+    Parameters:
+    - user_id (int): The ID of the user.
+
+    Returns:
+    - list: List of tasks for the specified user.
+    """
 def get_user_tasks(user_id):
     """
     Fetches tasks for a specified user from the API.
